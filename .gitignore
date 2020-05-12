@@ -1,26 +1,48 @@
-/.metadata/
+.gradle/
+.metadata/
+.svn/
+.cxx/
 node_modules/
 dist/
-.gradle
-.idea
-.cxx/
-
-local.properties
-
+build/
 gen/
 scratch/
 obj/
 bin/
-.svn/
-
-**/.vscode/
-
-.project
-.DS_Store
-.settings
 thumbs.db
+*.log
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
 
+### STS ###
+.apt_generated
 .classpath
-android-runtime.iml
-test-app/build-tools/*.log
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### VS Code ###
+.vscode/
+
+### Project specific ###
+treeNodeStream.dat
+treeStringsStream.dat
+treeValueStream.dat
+NativeScriptActivity.java
+NativeScriptApplication.java
+**/com/tns/gen
+captures/
+local.properties
+.DS_Store
+.externalNativeBuild
 test-app/analytics/build-statistics.json
