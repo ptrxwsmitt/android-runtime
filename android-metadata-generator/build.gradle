@@ -62,10 +62,15 @@ task copyNecessaryFiles {
 	}
 }
 
+task copyJarToBuildTools (type: Copy) {
+	from "$rootDir/build/libs/android-metadata-generator.jar"
+	into "$rootDir/../"
+}
+
 jar {
     manifest {
         attributes("Manifest-Version": "1.0",
-                   "Main-Class": "com.telerik.metadata.Generator")
+                "Main-Class": "com.telerik.metadata.Generator")
     }
 
     from {
@@ -77,14 +82,9 @@ jar {
             it.isDirectory() ? it : zipTree(it)
         }
     }
+
 }
 
-task copyJarToBuildTools (type: Copy) {
-	from "$projectDir/build/libs/android-metadata-generator.jar"
-	into "$projectDir/../"
-}
-
-jar.finalizedBy(copyJarToBuildTools)
 
 
 
