@@ -1,9 +1,3 @@
-apply plugin: 'java'
-apply plugin: 'kotlin'
-
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
 buildscript {
     repositories {
         google()
@@ -12,8 +6,20 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72'
     }
 }
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 
 compileJava {
     options.compilerArgs << "-Xlint:all" << "-Xlint:-options" << "-Werror"
@@ -39,8 +45,7 @@ dependencies {
     compile files("./src/libs/dx.jar")
 
     testCompile 'junit:junit:4.13'
-    testCompile 'org.mockito:mockito-core:3.0.0'
-    testImplementation 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:3.3.3'
 }
 
 task copyNecessaryFiles {
@@ -64,7 +69,6 @@ jar {
     }
 
     from {
-
         configurations.runtime.collect {
             it.isDirectory() ? it : zipTree(it)
         }
