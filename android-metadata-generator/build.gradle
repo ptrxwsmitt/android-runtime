@@ -15,17 +15,6 @@ buildscript {
     }
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir 'src/src'
-        }
-        kotlin {
-            srcDirs += 'src/src'
-        }
-    }
-}
-
 compileJava {
     options.compilerArgs << "-Xlint:all" << "-Xlint:-options" << "-Werror"
 }
